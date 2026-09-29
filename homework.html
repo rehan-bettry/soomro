@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework — Rehan Public School</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/print.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">R</div>
+        <div class="sidebar-brand"><h2>Rehan Public School</h2><span>Management System</span></div>
+      </div>
+      <nav class="sidebar-nav"></nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="App.closeSidebar()"></div>
+    <div class="main-content">
+      <header class="top-navbar">
+        <div class="navbar-left">
+          <button class="menu-toggle" onclick="App.toggleSidebar()" aria-label="Toggle menu">☰</button>
+          <h1 class="page-title" id="pageTitle" data-set="true">Homework</h1>
+        </div>
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="globalSearch" placeholder="Search..." autocomplete="off">
+          <div class="search-results" id="searchResults"></div>
+        </div>
+        <div class="navbar-right">
+          <button class="nav-btn" onclick="App.toggleTheme()" title="Dark Mode">🌓</button>
+          <button class="nav-btn" onclick="window.location='notifications.html'" title="Notifications">🔔<span class="badge-count" id="notifBadge" style="display:none">0</span></button>
+          <button class="nav-btn" onclick="window.location='communication.html'" title="Messages">✉️</button>
+          <div class="user-menu" onclick="App.toggleUserMenu()">
+            <div class="user-avatar" id="navUserAvatar">A</div>
+            <div class="user-info"><div class="user-name" id="navUserName">User</div><div class="user-role" id="navUserRole">admin</div></div>
+            <div class="dropdown-menu" id="userDropdown">
+              <a href="profile.html">👤 Profile</a>
+              <a href="settings.html">⚙️ Settings</a>
+              <div class="divider"></div>
+              <button onclick="Auth.logout()">🚪 Logout</button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="page-content">
+
+        <div class="page-header">
+          <div><h1>Homework</h1><div class="breadcrumb">Manage homework</div></div>
+          <div class="page-actions"><button class="btn btn-primary" onclick="Module.openAdd()">+ Add New</button></div>
+        </div>
+        <div class="toolbar">
+          <input type="text" class="form-control search-input" id="searchInput" placeholder="Search..." oninput="Module.search(this.value)">
+        </div>
+        <div class="card">
+          <div class="card-body" style="padding:0">
+            <div class="table-wrapper">
+              <table class="table"><thead><tr><th>Title</th><th>Subject</th><th>Class</th><th>Due Date</th><th>Status</th><th>Actions</th></tr></thead><tbody id="tableBody"></tbody></table>
+            </div>
+          </div>
+          <div class="card-footer"><div class="pagination" id="pagination"></div></div>
+        </div>
+        <div class="modal-overlay" id="formModal">
+          <div class="modal modal-lg">
+            <div class="modal-header"><h3 id="modalTitle">Add Homework</h3><button class="modal-close" onclick="App.closeModal('formModal')">&times;</button></div>
+            <div class="modal-body"><form id="dataForm"><div id="formFields"></div></form></div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" onclick="App.closeModal('formModal')">Cancel</button>
+              <button class="btn btn-primary" onclick="Module.save()">Save</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-overlay" id="viewModal">
+          <div class="modal"><div class="modal-header"><h3>Details</h3><button class="modal-close" onclick="App.closeModal('viewModal')">&times;</button></div>
+          <div class="modal-body" id="viewBody"></div>
+          <div class="modal-footer"><button class="btn btn-secondary" onclick="App.closeModal('viewModal')">Close</button></div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="toast-container"></div>
+  <script src="js/database.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if (!Auth.requireAuth()) {}
+    if (!Auth.hasAccess('homework') && Auth.getRole() !== 'admin') { window.location.href = 'dashboard.html'; }
+    document.addEventListener('DOMContentLoaded', () => { App.init(); });
+  </script>
+  <script src="js/homework.js"></script>
+  
+</body>
+</html>
