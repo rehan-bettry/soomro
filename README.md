@@ -1,47 +1,30 @@
-# Rehan Public School — School Management System
+# School Profile Management
 
-A complete frontend School Management System + Public Website built with HTML5, CSS3, and Vanilla JavaScript.
-
-## How to Run
-
-1. Open `index.html` in a modern browser (Chrome, Firefox, Edge)
-2. Click **Login** to access the management portal
-3. Use demo accounts:
-
-| Role    | Email                      | Password   |
-|---------|----------------------------|------------|
-| Admin   | admin@rehan-school.com     | admin123   |
-| Teacher | teacher@rehan-school.com   | teacher123 |
-| Student | student@rehan-school.com   | student123 |
-| Parent  | parent@rehan-school.com    | parent123  |
+Simple **Add / Edit / Delete Profile** system for school management dashboard.
 
 ## Features
 
-- Public school website with admissions, events, gallery, contact
-- Role-based access (Admin, Teacher, Student, Parent)
-- Full CRUD for Students, Teachers, Parents, Staff, Classes, Subjects
-- Attendance marking with statistics
-- Timetable management
-- Exam & Results with auto grade calculation
-- Fee collection with payment tracking
-- Payroll, Expenses, Finance dashboard with charts
-- Library, Transport, Inventory
-- Homework, Assignments, Quizzes
-- Notices, Events, Calendar
-- Certificates & ID Card generators
-- Reports center with print
-- Leave management, PTM, Visitors, Complaints, Discipline
-- Achievements, Gallery, Communication
-- Activity log, Notifications
-- Dark mode, responsive design
-- Backup/Restore (JSON export/import)
-- LocalStorage data persistence
+- **Add Profile** – Create new user profiles (Admin, Teacher, Student, Parent, Staff)
+- **Edit / Change Profile** – Update name, email, phone, role, User ID
+- **Remove Profile** – Delete any profile with confirmation
+- Switch between profiles by clicking on the list
+- Data saved in browser **localStorage** (no backend needed)
+- Looks similar to your original dashboard design
 
-## Tech Stack
+## How to use
 
-- HTML5 + CSS3 (CSS Variables, Flexbox, Grid)
-- Vanilla JavaScript ES6+
-- Chart.js (CDN) for dashboard charts
-- LocalStorage for all data
+1. Extract the zip
+2. Open `index.html` in any browser (Chrome, Edge, Firefox)
+3. Click **+ Add Profile** to create new profiles
+4. Use **Edit Profile** or **Remove Profile** buttons
+5. Click any profile card in the list to make it the current profile
 
-No frameworks. No backend. Works offline after first load.
+## Files
+
+- `index.html` – Main page
+- `style.css` – Styling
+- `script.js` – All logic (add / edit / delete + localStorage)
+
+## Note
+
+This is a frontend-only demo. For real production use, connect it to your backend (Firebase, MySQL, Node.js API, etc.).
