@@ -1,30 +1,28 @@
-# School Profile Management
+# School Profile Management (with Photo Upload)
 
-Simple **Add / Edit / Delete Profile** system for school management dashboard.
+**Add / Edit / Delete Profile** + **Profile Photo Upload**
 
 ## Features
 
-- **Add Profile** – Create new user profiles (Admin, Teacher, Student, Parent, Staff)
-- **Edit / Change Profile** – Update name, email, phone, role, User ID
-- **Remove Profile** – Delete any profile with confirmation
-- Switch between profiles by clicking on the list
-- Data saved in browser **localStorage** (no backend needed)
-- Looks similar to your original dashboard design
+- **+ Add Profile** – Create new profiles with photo
+- **Edit Profile** – Update details + change photo
+- **Change Photo** – Camera icon on avatar OR "Change Photo" button
+- **Remove Profile** – Delete with confirmation
+- **Switch Profile** – Click any profile in the list
+- Photo saved in browser (localStorage) as base64
+- Max photo size: **2MB** (JPG / PNG / GIF)
 
 ## How to use
 
 1. Extract the zip
-2. Open `index.html` in any browser (Chrome, Edge, Firefox)
-3. Click **+ Add Profile** to create new profiles
-4. Use **Edit Profile** or **Remove Profile** buttons
-5. Click any profile card in the list to make it the current profile
+2. Open `index.html` in Chrome / Edge / Firefox
+3. Click camera icon on the avatar, OR click **Change Photo** button
+4. Or click **+ Add Profile** → Upload Photo → Save
+5. Edit / Remove as needed
 
 ## Files
 
-- `index.html` – Main page
-- `style.css` – Styling
-- `script.js` – All logic (add / edit / delete + localStorage)
-
-## Note
-
-This is a frontend-only demo. For real production use, connect it to your backend (Firebase, MySQL, Node.js API, etc.).
+- index.html
+- style.css
+- script.js
+- README.md
